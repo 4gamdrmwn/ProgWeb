@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMPUS-Mini | Add Book</title>
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="list.html">Book List</a></li>
+                <li><a href="add.html">Add Book</a></li>
+                <li><a href="../members/list.html">Member List</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Add Book</h2>
+            <form>
+                <p>
+                    <label for="judul">Title</label><br>
+                    <input type="text" id="judul" name="judul" required>
+                </p>
+                <p>
+                    <label for="pengarang">Author</label><br>
+                    <input type="text" id="pengarang" name="pengarang" required>
+                </p>
+                <p>
+                    <label for="tahun">Publication Year</label><br>
+                    <input type="number" id="tahun" name="tahun" min="1900" max="2026" required>
+                </p>
+                <p>
+                    <label for="isbn">ISBN</label><br>
+                    <input type="text" id="isbn" name="isbn">
+                </p>
+                <p>
+                    <label for="stok">Stock</label><br>
+                    <input type="number" id="stok" name="stok" min="0" required>
+                </p>
+                <p>
+                    <label for="kategori">Category</label><br>
+                    <select id="kategori" name="kategori">
+                        <option value="fiksi">Fiction</option>
+                        <option value="non-fiksi">Non-Fiction</option>
+                        <option value="referensi">Reference</option>
+                    </select>
+                </p>
+                <p>
+                    <button type="submit">Save</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 1</p>
+    </footer>
+</body>
+</html>
