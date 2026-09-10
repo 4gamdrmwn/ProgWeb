@@ -191,6 +191,20 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ===== Code Responsive ===== */
+.code-responsive {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.code-responsive, pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 /* ===== Tabel Responsif ===== */
 .responsiveTable {
     overflow-x: auto;
@@ -252,4 +266,16 @@ footer {
     form select {
         max-width: 100%;
     }
+}
+
+@media (min-width: 1400px) {
+  main {
+    max-width: 1300px;
+  }
+}
+
+@media (max-width: 900px) {
+  main section:nth-of-type(2) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

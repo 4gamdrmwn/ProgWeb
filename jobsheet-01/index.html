@@ -47,6 +47,11 @@
                 <p>1</p>    
             </article>
         </section>
+        <section>
+      <h2>Sample Query (Code Responsive Demo)</h2>
+      <div class="code-responsive">
+        <pre><code>SELECT books.title, members.name FROM loans JOIN members ON loans.member_id = members.id JOIN books ON loans.book_id = books.id WHERE loans.status = 'borrowed';</code></pre>
+      </div>
     </main>
 
     <footer>
