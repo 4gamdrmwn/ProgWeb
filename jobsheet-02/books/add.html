@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMPUS-Mini | Add Book</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="list.html">Book List</a></li>
+                <li><a href="add.html">Add Book</a></li>
+                <li><a href="../members/list.html">Member List</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Add Book</h2>
+            <form>
+                <p>
+                    <label for="title">Title</label><br>
+                    <input type="text" id="title" name="title" required>
+                </p>
+                <p>
+                    <label for="author">Author</label><br>
+                    <input type="text" id="author" name="author" required>
+                </p>
+                <p>
+                    <label for="year">Publication Year</label><br>
+                    <input type="number" id="year" name="year" min="1900" max="2026" required>
+                </p>
+                <p>
+                    <label for="isbn">ISBN</label><br>
+                    <input type="text" id="isbn" name="isbn">
+                </p>
+                <p>
+                    <label for="stock">Stock</label><br>
+                    <input type="number" id="stock" name="stock" min="0" required>
+                </p>
+                <p>
+                    <label for="category">Category</label><br>
+                    <select id="category" name="category">
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="reference">Reference</option>
+                    </select>
+                </p>
+                <p>
+                    <button type="submit">Save</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 1</p>
+    </footer>
+</body>
+</html>
