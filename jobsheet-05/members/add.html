@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIMPUS-Mini | Add Member</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <button type="button" id="nav-toggle-btn" class="nav-toggle-label" aria-label="Menu">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../books/list.html">Book List</a></li>
+                <li><a href="list.html">Member List</a></li>
+                <li><a href="add.html">Add Member</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Add Member</h2>
+            <form id="add-form">
+                <p>
+                    <label for="name">Name</label><br>
+                    <input type="text" id="name" name="name" required>
+                </p>
+                <p>
+                    <label for="member_id">Member ID</label><br>
+                    <input type="text" id="member_id" name="member_id" required>
+                </p>
+                <p>
+                    <label for="address">Address</label><br>
+                    <input type="text" id="address" name="address">
+                </p>
+                <p>
+                    <label for="phone">Phone</label><br>
+                    <input type="text" id="phone" name="phone">
+                </p>
+                <p>
+                    <button type="submit">Save</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
+    </footer>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
