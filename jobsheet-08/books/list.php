@@ -6,7 +6,16 @@ require __DIR__ . '/../includes/connection.php';
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
-$books = $pdo->query("SELECT * FROM books ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
+// Latihan 3: Ambil kata kunci dan filter data dengan ILIKE
+$keyword = trim($_GET['q'] ?? '');
+
+if ($keyword !== '') {
+    $stmt = $pdo->prepare("SELECT * FROM books WHERE title ILIKE :keyword ORDER BY id DESC");
+    $stmt->execute(['keyword' => '%' . $keyword . '%']);
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $books = $pdo->query("SELECT * FROM books ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
         <section>
             <h2>Book List</h2>
@@ -15,9 +24,12 @@ $books = $pdo->query("SELECT * FROM books ORDER BY id DESC")->fetchAll(PDO::FETC
                 <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['message']; ?></p>
             <?php endif; ?>
 
+            <!-- Latihan 3: Bungkus search-box dengan form GET -->
             <div class="search-box">
-                <label for="search-input">Search Book Title</label>
-                <input type="text" id="search-input" placeholder="Type book title...">
+                <form method="get" action="list.php">
+                    <label for="search-input">Search Book Title</label>
+                    <input type="text" id="search-input" name="q" value="<?php echo htmlspecialchars($keyword); ?>" placeholder="Type book title...">
+                </form>
             </div>
 
             <div class="table-responsive">
@@ -28,13 +40,16 @@ $books = $pdo->query("SELECT * FROM books ORDER BY id DESC")->fetchAll(PDO::FETC
                         <th>Author</th>
                         <th>Year</th>
                         <th>Stock</th>
+                        <!-- Latihan 2: Tambah header kolom tanggal -->
+                        <th>Date Added</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($books)): ?>
                     <tr>
-                        <td colspan="5">No book data yet. Please add one via the "Add Book" menu.</td>
+                        <!-- Colspan disesuaikan menjadi 6 -->
+                        <td colspan="6">No book data yet. Please add one via the "Add Book" menu.</td>
                     </tr>
                     <?php else: ?>
                         <?php foreach ($books as $book): ?>
@@ -43,6 +58,8 @@ $books = $pdo->query("SELECT * FROM books ORDER BY id DESC")->fetchAll(PDO::FETC
                             <td><?php echo $book['author']; ?></td>
                             <td><?php echo $book['year']; ?></td>
                             <td><?php echo $book['stock']; ?></td>
+                            <!-- Latihan 2: Tampilkan nilai kolom created_at -->
+                            <td><?php echo !empty($book['created_at']) ? date('d M Y H:i', strtotime($book['created_at'])) : '-'; ?></td>
                             <td>
                                 <button type="button">Edit</button>
                                 <button type="button" class="btn-delete">Delete</button>
